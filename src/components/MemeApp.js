@@ -9,12 +9,13 @@ function MemeApp() {
 
     // useEffect(() => {
     //     axios.get("https://api.imgflip.com/get_memes")
-    //         // .then(response => setState({ memes: response.data}))
-    //         .then(response => console.log(response.data))
-    // })
+    //         .then(response => setState({
+    //             memes: response.data.data.memes
+    //         }))
+    // },[])
     return (
         <div className="container">
-            <Header/>
+            <Header />
             <MemeGenerator />
         </div>
     )

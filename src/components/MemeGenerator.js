@@ -1,20 +1,21 @@
-import axios from "axios";
 import React, {Component} from "react";
 
 class MemeGenerator extends Component {
     state = {
-        topText: "",
-        botText: "",
-        randomImage: "https://i.imgflip.com/26am.jpg",
+        topText: "Cao Minh",
+        botText: "Tri",
+        randomImage: "https://i.imgflip.com/1bh3.jpg",
         allMemeImgs: []
     }
 
     componentDidMount() {
         fetch("https://api.imgflip.com/get_memes")
             .then(response => response.json())
-            .then(response => this.setState({ allMemeImgs: response.data.memes }));
+            .then(response => this.setState({
+                allMemeImgs: response.data.memes
+            }));
     }
-
+   
     handleChange = e => {
         this.setState({
             [e.target.name]: e.target.value
@@ -34,13 +35,11 @@ class MemeGenerator extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input type="text"
                         placeholder="Input top text..."
-                        value={this.state.value}
                         onChange={this.handleChange}
                         name="topText"
                     />
                     <input type="text"
                         placeholder="Input bottom text..."
-                        value={this.state.value}
                         onChange={this.handleChange}
                         name="botText"
                     />
